@@ -28,7 +28,10 @@ LABEL org.label-schema.vendor="Red Hat" \
   version="$VERSION" \
   release="$VERSION" \
   description="the Loki Operator provides Kubernetes native deployment and management of Loki components." \
-  summary="Kubernetes Operator for Loki"
+  io.k8s.description="the Loki Operator provides Kubernetes native deployment and management of Loki components." \
+  summary="Kubernetes Operator for Loki" \
+  url="https://github.com/rhobs/rhobs-konflux-loki-operator" \
+  distribution-scope="restricted"
 
 COPY --from=builder /workspace/manager .
 COPY --from=builder /workspace/LICENSE /licenses/LICENSE
