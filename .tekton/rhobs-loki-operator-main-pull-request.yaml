@@ -31,8 +31,6 @@ spec:
     value: Containerfile.loki-operator
   - name: path-context
     value: .
-  - name: build-source-image
-    value: "true"
   pipelineSpec:
     description: |
       This pipeline is ideal for building container images from a Containerfile while reducing network traffic.
@@ -206,7 +204,6 @@ spec:
       - name: BUILD_ARGS
         value:
         - $(params.build-args[*])
-        - "VERSION=$(tasks.clone-repository.results.short-commit)"
       - name: BUILD_ARGS_FILE
         value: $(params.build-args-file)
       - name: PRIVILEGED_NESTED
@@ -222,7 +219,7 @@ spec:
         - name: name
           value: buildah
         - name: bundle
-          value: quay.io/konflux-ci/tekton-catalog/task-buildah:0.6@sha256:79359313ecd9c63466dd3f66314ebe7557a74c9c58fa9e86d2c093f07f7ffb92
+          value: quay.io/konflux-ci/tekton-catalog/task-buildah:0.7@sha256:b599e74942b45ab372cc1e2e3f875aa0da55f342fe65c8f2eb728c4673162af2
         - name: kind
           value: task
         resolver: bundles
@@ -574,7 +571,7 @@ spec:
         - name: name
           value: rpms-signature-scan
         - name: bundle
-          value: quay.io/konflux-ci/konflux-vanguard/task-rpms-signature-scan:0.2@sha256:78c8d7960c6db284356d94aaae64d1fca34fff4de6a6e20d897a088af0c81cf5
+          value: quay.io/konflux-ci/konflux-vanguard/task-rpms-signature-scan:0.2@sha256:0ea6f3f90ee719a22da894214c4c8c396ab4da7cf411be592a07e9c7cf440850
         - name: kind
           value: task
         resolver: bundles
