@@ -1,4 +1,4 @@
 [submodule "loki-operator"]
 	path = loki-operator
 	url = https://github.com/openshift/loki
-	branch = release-6.3
+	branch = release-6.4
