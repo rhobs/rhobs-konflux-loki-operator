@@ -1,4 +1,4 @@
 [submodule "loki-operator"]
 	path = loki-operator
-	url = https://github.com/openshift/loki
-	branch = main
+	url = https://github.com/xperimental/loki.git
+	branch = ingester-timeout
