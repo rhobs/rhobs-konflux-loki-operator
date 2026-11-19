@@ -5,14 +5,14 @@ RUN dnf upgrade -y go-toolset
 WORKDIR /workspace
 
 COPY loki-operator/LICENSE LICENSE
-COPY loki-operator/operator/api/ api/
-COPY loki-operator/operator/go.mod go.mod
-COPY loki-operator/operator/go.sum go.sum
+COPY loki-operator/api/ api/
+COPY loki-operator/go.mod go.mod
+COPY loki-operator/go.sum go.sum
 
 RUN go mod download
 
-COPY loki-operator/operator/cmd/loki-operator/main.go cmd/loki-operator/main.go
-COPY loki-operator/operator/internal/ internal/
+COPY loki-operator/cmd/loki-operator/main.go cmd/loki-operator/main.go
+COPY loki-operator/internal/ internal/
 
 RUN go build -mod=readonly -a -o manager cmd/loki-operator/main.go
 
